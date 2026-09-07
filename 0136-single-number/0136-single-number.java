@@ -1,22 +1,34 @@
-//Better approach
-import java.util.HashMap;
-import java.util.Map;
+//optimal approach
 class Solution {
     public int singleNumber(int[] nums) {
-        int n = nums.length;
-         HashMap<Integer,Integer> map = new HashMap<>();
-        for(int i =0;i<n;i++){
-            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        int xorr=0;
+        for(int i =0;i<nums.length;i++){
+            xorr = xorr^nums[i];
         }
-        for(Map.Entry<Integer,Integer> entry:map.entrySet()){
-            if(entry.getValue()==1){
-                return entry.getKey();
-            }
-        }
-        return -1;
+        return xorr;
     }
        
  }
+
+//Better approach
+// import java.util.HashMap;
+// import java.util.Map;
+// class Solution {
+//     public int singleNumber(int[] nums) {
+//         int n = nums.length;
+//          HashMap<Integer,Integer> map = new HashMap<>();
+//         for(int i =0;i<n;i++){
+//             map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+//         }
+//         for(Map.Entry<Integer,Integer> entry:map.entrySet()){
+//             if(entry.getValue()==1){
+//                 return entry.getKey();
+//             }
+//         }
+//         return -1;
+//     }
+       
+//  }
 
 
 // brute force approach 
